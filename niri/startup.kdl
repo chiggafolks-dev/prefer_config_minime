@@ -7,7 +7,7 @@
     // spawn-sh-at-startup "waybar" // Launch waybar
     spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell"
     spawn-sh-at-startup "xrdb merge ~/.Xresources"
-    spawn-at-startup "kitty" "-e" "fish" "-c" "/home/minime/.config/niri/scripts/updates.sh"
+    spawn-at-startup "kitty" "-e" "fish" "-c" ".config/niri/scripts/updates.sh"
 
     // spawn-sh-at-startup "/home/minime/.config/niri/scripts/wallpapers.sh"
 
