@@ -1,0 +1,15 @@
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+
+    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+    // spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
+    //spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
+    // spawn-sh-at-startup "waybar" // Launch waybar
+    spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell"
+    spawn-sh-at-startup "xrdb merge ~/.Xresources"
+    spawn-at-startup "kitty" "-e" "fish" "-c" "/home/minime/.config/niri/scripts/updates.sh"
+
+    // spawn-sh-at-startup "/home/minime/.config/niri/scripts/wallpapers.sh"
+
+    prefer-no-csd // Disable program decorations
+    screenshot-path null // Disable screenshot saving

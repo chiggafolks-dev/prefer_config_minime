@@ -1,0 +1,55 @@
+// Niri configuration for CachyOS
+// For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
+
+
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+
+output "DP-1" {
+    mode "1920x1080@59.997" // Set resolution and refresh rate
+    scale 2 // No scaling (use 2 for HiDPI)
+}
+
+
+
+// ────────────── Window Rules ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+    window-rule {
+        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+        open-floating true // Always float Firefox PiP windows
+    }
+
+    window-rule {
+        geometry-corner-radius 20 // Set every window radius to 20
+        clip-to-geometry true
+    }
+
+    window-rule {
+	match is-active=false
+	opacity 0.85
+    }
+
+// ────────────── Environment Variables ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
+
+    environment {
+        DISPLAY ":1"
+        ELECTRON_OZONE_PLATFORM_HINT "auto"
+        QT_QPA_PLATFORM "wayland"
+        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+        XDG_SESSION_TYPE "wayland"
+        XDG_CURRENT_DESKTOP "niri"
+    }
+
+    hotkey-overlay {
+        skip-at-startup
+    }
+
+include "./noctalia.kdl"
+include "./input.kdl"
+include "./keybind.kdl"
+include "./startup.kdl"
+include "./interface.kdl"
